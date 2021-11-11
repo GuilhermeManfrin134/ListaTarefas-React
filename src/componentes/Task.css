@@ -8,4 +8,15 @@
     justify-content: space-between;
     color: rgb(255, 255, 255);
     cursor: pointer;
+    box-sizing: border-box;
+}
+.task-title{
+    cursor: pointer;
+}
+.remove-task-button{
+    background-color: rgb(255, 81, 110);
+    border: none;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
 }

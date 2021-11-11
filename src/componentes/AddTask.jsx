@@ -1,13 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./AddTask.css"
 import Button from './Button';
 
-const AddTask = () => {
+const AddTask = ({handleTaskAddition}) => {
+    const [InputData, setInputData] = useState(''); //1º
+
+    const handleInputChange = (e) => {
+        setInputData(e.target.value);
+    }
+
+    const handleAddTaskClick = () => {
+        handleTaskAddition(InputData);              //2º
+        setInputData(' ');
+    }
+
     return ( 
         <div className="add-task-container">
-            <input className="add-task-input" type="text" /> 
+            <input 
+                onChange={handleInputChange} 
+                value={InputData} 
+                className="add-task-input" 
+                type="text" 
+            /> 
             <div className="add-task-button-container">
-                <Button>Adicionar</Button>
+                <Button onClick={handleAddTaskClick}>Adicionar</Button>
             </div>
         </div>
         
