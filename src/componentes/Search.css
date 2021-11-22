@@ -1,0 +1,22 @@
+.taskSearch{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.inputSearch{
+    background-color: white;
+    margin: 10px 0;
+    border: solid 5px crimson;
+    border-radius: 15px;
+    padding: 15px 20px;
+    box-sizing: border-box;
+    width: 90%;
+}
+.iconSearch{
+    color: crimson;
+    font-size: 40px;
+}
+::-webkit-input-placeholder {
+    color: rgb(255, 81, 110);
+  }

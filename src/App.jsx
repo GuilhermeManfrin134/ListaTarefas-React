@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import AddTask from "./componentes/AddTask";
 import Tasks from "./componentes/Tasks";
 import { v4 as uuidv4 } from "uuid";
 import Header from './componentes/Header';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Search from "./componentes/Search";
 
 const App = () => {
-  const [tasks, setTasks] = useState([
+
+  const tarefas = [
     {
       id: "1",
       title: 'Estudar Programação',
@@ -15,11 +18,12 @@ const App = () => {
     {
       id: "2",
       title: 'Trabalhar',
-      completed: true,
+      completed: false,
     },
-  ]);
-
+  ]
   
+  const [tasks, setTasks] = useState(tarefas);
+
   const handleTaskClick = (taskId) => { //Selecionar
     const newTask = tasks.map(task => {
       if(task.id == taskId) return { ... task, completed: !task.completed}
@@ -50,15 +54,24 @@ const App = () => {
     setTasks(removeTask)
   }
 
+  const [search, setSearch] = useState('');
+  
+  const searchFilter = tasks.filter((tarefa) => tarefa.title.toLowerCase().includes(search.toLowerCase()))
+
 
   return (
-    <>
+    <Router>
         <div className="container">
             <Header />
-            <AddTask handleTaskAddition={handleTaskAddition} />
-            <Tasks tasks={tasks} handleTaskClick={handleTaskClick} handleTaskRemove={handleTaskRemove}/>
+              <Search search={search} setSearch={setSearch} />
+              <AddTask handleTaskAddition={handleTaskAddition} />
+              <Tasks 
+                tasks={searchFilter} 
+                handleTaskClick={handleTaskClick} 
+                handleTaskRemove={handleTaskRemove}
+              />
         </div>
-    </> 
+    </Router> 
   )   
 };
 
