@@ -1,7 +1,7 @@
 .task-container{
     background-color: rgb(255, 81, 110);
     margin: 10px 0;
-    border: solid 2px crimson;
+    border: solid 3px crimson;
     border-radius: 15px;
     padding: 15px 20px;
     display: flex;
@@ -19,4 +19,10 @@
     font-size: 20px;
     color: rgb(255, 255, 255);
     cursor: pointer;
+}
+.completed-task{
+    float: left;
+    display: none;
+    margin: 0;
+    padding: 0;
 }
