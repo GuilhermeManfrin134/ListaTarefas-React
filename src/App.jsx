@@ -9,18 +9,7 @@ import Search from "./componentes/Search";
 
 const App = () => {
 
-  const tarefas = [
-    {
-      id: "1",
-      title: 'Estudar Programação',
-      completed: false,
-    },
-    {
-      id: "2",
-      title: 'Trabalhar',
-      completed: false,
-    },
-  ]
+  const tarefas = [];
   
   const [tasks, setTasks] = useState(tarefas);
 
@@ -54,16 +43,26 @@ const App = () => {
     setTasks(removeTask)
   }
 
+  const handleOrderClick = () => {
+    let newListTask = [... tasks];
+
+    newListTask.sort((a, b) => (a.title > b.title ? 1 : b.title > a.title ? -1 : 0))
+
+    setTasks(newListTask)
+  }
+
   const [search, setSearch] = useState('');
+
+  const lowerSearch = search.toLowerCase();
   
-  const searchFilter = tasks.filter((tarefa) => tarefa.title.toLowerCase().includes(search.toLowerCase()))
+  const searchFilter = tasks.filter((tarefa) => tarefa.title.toLowerCase().includes(lowerSearch))
 
 
   return (
     <Router>
         <div className="container">
             <Header />
-              <Search search={search} setSearch={setSearch} />
+              <Search handleOrderClick={handleOrderClick} search={search} setSearch={setSearch} />
               <AddTask handleTaskAddition={handleTaskAddition} />
               <Tasks 
                 tasks={searchFilter} 
