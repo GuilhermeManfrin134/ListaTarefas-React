@@ -4,14 +4,27 @@ import AddTask from "./componentes/AddTask";
 import Tasks from "./componentes/Tasks";
 import { v4 as uuidv4 } from "uuid";
 import Header from './componentes/Header';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Search from "./componentes/Search";
+import axios from "axios";
 
 const App = () => {
 
   const tarefas = [];
   
   const [tasks, setTasks] = useState(tarefas);
+
+  useEffect(() => {
+    const tarefasStorage = localStorage.getItem('tasks');
+
+    if(tarefasStorage){
+      setTasks(JSON.parse(tarefasStorage));
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks])
 
   const handleTaskClick = (taskId) => { //Selecionar
     const newTask = tasks.map(task => {
@@ -59,7 +72,7 @@ const App = () => {
 
 
   return (
-    <Router>
+    <>
         <div className="container">
             <Header />
               <Search handleOrderClick={handleOrderClick} search={search} setSearch={setSearch} />
@@ -70,7 +83,7 @@ const App = () => {
                 handleTaskRemove={handleTaskRemove}
               />
         </div>
-    </Router> 
+    </> 
   )   
 };
 
