@@ -4,9 +4,7 @@ import AddTask from "./componentes/AddTask";
 import Tasks from "./componentes/Tasks";
 import { v4 as uuidv4 } from "uuid";
 import Header from './componentes/Header';
-import { Switch, Route } from "react-router-dom";
 import Search from "./componentes/Search";
-import axios from "axios";
 
 const App = () => {
 
@@ -28,7 +26,7 @@ const App = () => {
 
   const handleTaskClick = (taskId) => { //Selecionar
     const newTask = tasks.map(task => {
-      if(task.id == taskId) return { ... task, completed: !task.completed}
+      if(task.id === taskId) return { ...task, completed: !task.completed}
 
       return task;
     })
@@ -38,7 +36,7 @@ const App = () => {
 
   const handleTaskAddition = (taskTitle) => { //Adiconar
     const newTask = [                                 //3º
-      ... tasks,                                      //Tudo que está em tasks
+      ...tasks,                                      //Tudo que está em tasks
       {      
       title: taskTitle,
       id: uuidv4(),
@@ -51,13 +49,13 @@ const App = () => {
   }
 
   const handleTaskRemove = (taskId) => { //Remover
-    const removeTask = tasks.filter(task => task.id != taskId)
+    const removeTask = tasks.filter(task => task.id !== taskId)
 
     setTasks(removeTask)
   }
 
   const handleOrderClick = () => {
-    let newListTask = [... tasks];
+    let newListTask = [...tasks];
 
     newListTask.sort((a, b) => (a.title > b.title ? 1 : b.title > a.title ? -1 : 0))
 
@@ -69,7 +67,6 @@ const App = () => {
   const lowerSearch = search.toLowerCase();
   
   const searchFilter = tasks.filter((tarefa) => tarefa.title.toLowerCase().includes(lowerSearch))
-
 
   return (
     <>
