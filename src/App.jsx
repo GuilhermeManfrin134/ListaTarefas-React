@@ -67,6 +67,7 @@ const App = () => {
   const lowerSearch = search.toLowerCase();
   
   const searchFilter = tasks.filter((tarefa) => tarefa.title.toLowerCase().includes(lowerSearch))
+  
 
   return (
     <>

@@ -17,3 +17,14 @@
     flex: 1;
     margin-left: 10px;
 }
+
+@media screen and (max-width: 450px){
+    .add-task-container{
+        flex-direction: column;
+    }
+    
+    .add-task-button-container{
+        margin-top: 10px;
+        margin-left: 0;
+    }
+}

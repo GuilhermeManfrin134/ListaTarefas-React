@@ -17,10 +17,11 @@ const AddTask = ({handleTaskAddition}) => {
     return ( 
         <div className="add-task-container">
             <input 
+                type="text" 
+                placeholder="Ex: Fazer Compras"
                 onChange={handleInputChange} 
                 value={InputData} 
                 className="add-task-input" 
-                type="text" 
             /> 
             <div className="add-task-button-container">
                 <Button onClick={handleAddTaskClick}>Adicionar</Button>

@@ -7,3 +7,10 @@
     border: 3px solid crimson;
     overflow: auto;
 }
+
+@media screen and (max-width: 650px){
+    .container{
+        margin: 0 auto;
+        border: 0;
+    }
+}
