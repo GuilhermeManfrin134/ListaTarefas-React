@@ -19,9 +19,9 @@
 
 # <div id="test">Como Testar</div>
 
-<p>Para testar o código, é necessário instalar em sua máquina as seguintes ferramentas: <a href="https://git-scm.com/downloads">Git, </a> <a href="https://nodejs.org/en/download/">Node.js</a>. Também recomeda-se ter um editor para trabalhar com o código como o <a href="https://code.visualstudio.com/download">VSCode</a>.</p>
+<p>Para testar o código, é necessário instalar em sua máquina as seguintes ferramentas: <a target="_blank" href="https://git-scm.com/downloads">Git, </a> <a target="_blank" href="https://nodejs.org/en/download/">Node.js</a>. Também recomeda-se ter um editor para trabalhar com o código como o <a target="_blank" href="https://code.visualstudio.com/download">VSCode</a>.</p>
 <br>
-<p>Para testar o Aplicativo, acesse o site <a href="https://liste-suas-tarefas-diarias.netlify.app/">https://liste-suas-tarefas-diarias.netlify.app/</a></p>
+<p>Para testar o Aplicativo, acesse o site <a target="_blank" href="https://liste-suas-tarefas-diarias.netlify.app/">https://liste-suas-tarefas-diarias.netlify.app/</a></p>
 
 <hr>
 
